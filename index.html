@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Buku Kenangan - Star Champs Indonesia</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/LogoSCI.png">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Mali:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- PageFlip JS -->
+    <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.js"></script>
+    
+    <!-- Confetti JS for surprise -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sc: {
+                            sky: '#7dd3fc',
+                            grass: '#34d399',
+                            sun: '#fde047',
+                            paper: '#FFFDF0',
+                            star: '#f59e0b'
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Fredoka', 'sans-serif'],
+                        body: ['Mali', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased text-gray-800">
+
+    <!-- Modal Surprise Kado -->
+    <div id="intro-modal" class="fixed inset-0 z-[200] bg-sky-400 flex flex-col items-center justify-center transition-opacity duration-1000">
+        <div class="text-center p-6 bg-white/20 backdrop-blur-sm rounded-3xl border-4 border-white border-dashed shadow-2xl mx-4">
+            <h1 class="text-white font-heading font-bold text-3xl md:text-5xl mb-6 tracking-wide drop-shadow-md">Surprise! 🎉</h1>
+            <div class="text-[6rem] md:text-[8rem] animate-bounce cursor-pointer hover:scale-110 transition-transform" id="btn-open-gift" title="Ketuk Kado Ini!">
+                🎁
+            </div>
+            <p class="text-white font-heading mt-6 text-xl md:text-2xl font-semibold drop-shadow">Buka Kado Spesial Untukmu!</p>
+            <p class="text-sky-100 font-body text-sm md:text-base mt-2">Ketuk kado di atas untuk membuka</p>
+        </div>
+        <p class="absolute bottom-5 text-sky-100 font-body text-xs opacity-70">Pastikan volume HP kamu menyala 🔊</p>
+    </div>
+
+    <!-- Audio BGM -->
+    <!-- Sound effect from local file -->
+    <audio id="bgm" loop preload="auto">
+        <source src="congrats.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="btn-music" class="fixed top-4 right-4 z-[150] bg-white/80 p-3 rounded-full shadow border-2 border-sky-300 text-xl hidden transition-transform hover:scale-110" title="Toggle Music">
+        🎵
+    </button>
+
+    <!-- Animasi Background -->
+    <div class="bg-anim-container">
+        <div class="cloud c1"></div>
+        <div class="cloud c2"></div>
+        <div class="cloud c3"></div>
+        <div class="floating-star s1">⭐</div>
+        <div class="floating-star s2">✨</div>
+        <div class="floating-star s3">🌟</div>
+    </div>
+
+    <div class="book-container">
+        
+        <div class="bg-white/90 px-4 py-2 rounded-full shadow-sm mb-3 border-2 border-white flex items-center gap-2 mt-4 md:mt-0">
+            <span class="text-lg animate-bounce">👆</span>
+            <p class="text-xs md:text-sm text-gray-700 font-heading font-semibold">
+                Geser (swipe) kertas untuk membuka raport!
+            </p>
+        </div>
+
+        <!-- Flipbook Element Container -->
+        <div id="flipbook" class="shadow-2xl rounded-lg">
+            <!-- Dynamic Content injected via main.js -->
+        </div>
+
+        <!-- Tombol Navigasi -->
+        <div class="controls">
+            <button id="btn-prev" class="btn-nav flex items-center gap-1" disabled>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                <span class="text-sm md:text-base">Balik</span>
+            </button>
+            <button id="btn-next" class="btn-nav flex items-center gap-1">
+                <span class="text-sm md:text-base">Buka</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Data and App Logic -->
+    <script src="data.js"></script>
+    <script src="main.js"></script>
+    
+</body>
+</html>

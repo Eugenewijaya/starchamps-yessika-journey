@@ -1,0 +1,218 @@
+body {
+    background-color: #7dd3fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Latar Belakang Animasi Awan & Bintang */
+.bg-anim-container {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.cloud {
+    position: absolute;
+    background: white;
+    border-radius: 50px;
+    opacity: 0.7;
+    animation: floatClouds linear infinite;
+}
+.cloud::before, .cloud::after {
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+}
+/* Cloud 1 */
+.c1 { width: 100px; height: 30px; top: 15%; left: -100px; animation-duration: 25s; }
+.c1::before { width: 40px; height: 40px; top: -15px; left: 15px; }
+.c1::after { width: 50px; height: 50px; top: -25px; left: 40px; }
+/* Cloud 2 */
+.c2 { width: 80px; height: 25px; top: 40%; left: -150px; animation-duration: 35s; transform: scale(0.8); }
+.c2::before { width: 30px; height: 30px; top: -10px; left: 10px; }
+.c2::after { width: 40px; height: 40px; top: -20px; left: 30px; }
+/* Cloud 3 */
+.c3 { width: 120px; height: 35px; top: 70%; left: -200px; animation-duration: 20s; transform: scale(1.2); opacity: 0.5;}
+.c3::before { width: 50px; height: 50px; top: -20px; left: 20px; }
+.c3::after { width: 60px; height: 60px; top: -30px; left: 50px; }
+
+@keyframes floatClouds {
+    0% { transform: translateX(-10vw); }
+    100% { transform: translateX(110vw); }
+}
+
+.floating-star {
+    position: absolute;
+    font-size: 24px;
+    animation: floatUp ease-in-out infinite alternate;
+}
+.s1 { top: 20%; left: 10%; animation-duration: 3s; font-size: 2rem;}
+.s2 { top: 10%; right: 20%; animation-duration: 4s; font-size: 1.5rem; animation-delay: 1s;}
+.s3 { top: 60%; left: 80%; animation-duration: 3.5s; font-size: 2.5rem; animation-delay: 0.5s;}
+
+@keyframes floatUp {
+    0% { transform: translateY(0px) rotate(0deg) scale(1); }
+    100% { transform: translateY(-20px) rotate(15deg) scale(1.1); }
+}
+
+/* Rumput Bawah */
+body::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; width: 100%; 
+    height: 12vh;
+    height: 12dvh;
+    background-color: #34d399;
+    border-top: 6px solid #10b981;
+    z-index: -1;
+    border-radius: 50% 50% 0 0 / 20px 20px 0 0;
+}
+
+.book-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 100vw;
+    padding: 10px;
+    z-index: 10;
+}
+
+/* Halaman Kertas */
+.page {
+    background-color: #FFFDF0;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+}
+.page:not(.--cover)::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: linear-gradient(#e5e7eb 1px, transparent 1px);
+    background-size: 100% 2rem;
+    background-position: 0 3rem;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Hardcover Raport */
+.page.--cover {
+    background-color: var(--cover-bg, #0284c7); 
+    border: 4px dashed var(--cover-border, #bae6fd);
+    border-radius: 8px;
+}
+.page.--cover.--back {
+    background-color: var(--back-bg, #f59e0b); 
+    border-color: var(--back-border, #fde68a);
+}
+
+.page-content {
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem; 
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 10;
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Custom Scrollbar for page content so text doesn't flow out of page on small mobiles */
+.page-content::-webkit-scrollbar {
+    width: 6px;
+}
+.page-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+.page-content::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 20px;
+}
+
+/* Responsivitas Konten */
+@media (min-width: 768px) {
+    .page-content { padding: 2rem; }
+    .mobile-text-sm { font-size: 1rem; }
+    .mobile-title { font-size: 2rem; }
+}
+@media (max-width: 767px) {
+    .mobile-text-sm { font-size: 0.8rem; }
+    .mobile-title { font-size: 1.5rem; }
+    .chat-bubble p { font-size: 0.85rem; }
+    .photo-card p { font-size: 0.65rem; }
+}
+
+/* Nomor Halaman Bintang */
+.page-number {
+    position: absolute;
+    bottom: 0.8rem;
+    width: 25px; height: 25px;
+    background-color: #f59e0b;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center; align-items: center;
+    font-size: 0.75rem;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: bold;
+}
+.page.--left .page-number { left: 1rem; }
+.page.--right .page-number { right: 1rem; }
+
+/* UI Tombol */
+.controls {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    z-index: 100;
+}
+.btn-nav {
+    background: #fde047; color: #b45309;
+    border: 2px solid #eab308;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-family: 'Fredoka', sans-serif; font-weight: 600;
+    cursor: pointer; transition: transform 0.2s;
+    box-shadow: 0 3px 0 #eab308;
+}
+.btn-nav:hover:not(:disabled) { transform: translateY(2px); box-shadow: 0 1px 0 #eab308; }
+.btn-nav:disabled { opacity: 0.5; cursor: not-allowed; background: #e5e7eb; border-color: #d1d5db; color: #9ca3af; box-shadow: none; transform: none; }
+
+/* Elemen Foto */
+.photo-card {
+    background: white; padding: 6px; padding-bottom: 20px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    position: relative; border: 1px solid #e5e7eb; border-radius: 4px;
+}
+.photo-card::before {
+    content: ''; position: absolute; top: -8px; left: 50%; transform: translateX(-50%) rotate(-2deg);
+    width: 60px; height: 20px; background-color: rgba(253, 164, 175, 0.8); z-index: 10;
+}
+/* Variasi Warna Selotip */
+.tape-blue::before { background-color: rgba(147, 197, 253, 0.8); }
+.tape-green::before { background-color: rgba(134, 239, 172, 0.8); }
+.tape-yellow::before { background-color: rgba(253, 224, 71, 0.8); }
+.tape-pink::before { background-color: rgba(253, 164, 175, 0.8); }
+
+/* Bar Statistik Animasi */
+.stat-bar-bg { width: 100%; background-color: #e5e7eb; border-radius: 999px; height: 12px; overflow: hidden; margin-top: 4px; border: 1px solid #d1d5db;}
+.stat-bar-fill { height: 100%; border-radius: 999px; }
+
+/* Chat Bubble */
+.chat-bubble {
+    background: white; border: 2px solid #93c5fd; border-radius: 12px; padding: 10px; position: relative; box-shadow: 2px 2px 0 #60a5fa;
+}
