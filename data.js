@@ -56,8 +56,8 @@ const flipbookData = {
                 { icon: "🍨", title: "Es Krim Box", value: "Tak Terhitung", color: "sky", cols: 1 },
                 { icon: "🍲", title: "Bakso Pentol", value: "30 Mangkok", color: "red", cols: 1 },
                 { icon: "🍘", title: "Tahu Tempe Kantin", value: "78 Pcs", color: "amber", cols: 1 },
-                { icon: "🍜", title: "Soto Ayam Red Hot", value: "27 Mangkok", color: "orange", cols: 1 },
-                { icon: "🏬", title: "Muter-muter AEON", value: "130x Putaran", color: "purple", cols: 2 }
+                { icon: "🍜", title: "Pop Mie rasa ayam", value: "27 Cup", color: "orange", cols: 1 },
+                { icon: "🏬", title: "Muter-muter AEON", value: "127x Putaran", color: "purple", cols: 2 }
             ]
         },
         friends: [
@@ -125,13 +125,13 @@ const flipbookData = {
         ],
         galleries: [
             {
-                title: "🌸 Tawa yang Tak Terlupa",
+                title: "Wihh kita lagi bareng Adik Ryu",
                 color: "pink",
                 photos: [
                     { url: "https://i.ibb.co.com/x8rSjhtq/IMG-4087.jpg", caption: "Langkah Awal", tape: "blue", rotate: 1 },
-                    { url: "img/WhatsApp Image 2026-03-31 at 11.05.51.jpeg", caption: "Berbagi kasih", tape: "green", rotate: -2 },
-                    { url: "img/WhatsApp Image 2026-03-31 at 11.05.52.jpeg", caption: "Momen Ceria", tape: "yellow", rotate: 2 },
-                    { url: "img/WhatsApp Image 2026-03-31 at 11.05.53.jpeg", caption: "Senyum Tulus", tape: "pink", rotate: -1 }
+                    { url: "img/WhatsApp Image 2026-03-31 at 11.05.51.jpeg", caption: "", tape: "green", rotate: -2 },
+                    { url: "img/WhatsApp Image 2026-03-31 at 11.05.52.jpeg", caption: "", tape: "yellow", rotate: 2 },
+                    { url: "img/WhatsApp Image 2026-03-31 at 11.05.53.jpeg", caption: "", tape: "pink", rotate: -1 }
                 ]
             },
             {
@@ -162,7 +162,7 @@ const flipbookData = {
                 title: "🏢 Meja Frontdesk",
                 color: "orange",
                 photos: [
-                    { url: "img/meja frontdesk/IMG_4338.JPG", caption: "Waktu masih di depan nih yee", tape: "yellow", rotate: 2 },
+                    { url: "img/meja frontdesk/IMG_4338.JPG", caption: "Waktu masih jaga depan nih yee", tape: "yellow", rotate: 2 },
                     { url: "img/meja frontdesk/IMG_4349.JPG", caption: "", tape: "green", rotate: -1 },
                     { url: "img/meja frontdesk/IMG_4351.JPG", caption: "", tape: "blue", rotate: 2 }
                 ]
@@ -171,7 +171,7 @@ const flipbookData = {
                 title: "✨ Starclub (1)",
                 color: "yellow",
                 photos: [
-                    { url: "img/starclub/DSC02440.jpg", caption: "Momen Starclub", tape: "pink", rotate: -2 },
+                    { url: "img/starclub/DSC02440.jpg", caption: "Aktivitas di Starclub", tape: "pink", rotate: -2 },
                     { url: "img/starclub/DSC03045.jpg", caption: "", tape: "blue", rotate: 1 },
                     { url: "img/starclub/DSC03058.jpg", caption: "", tape: "green", rotate: -1 },
                     { url: "img/starclub/DSC03060.jpg", caption: "", tape: "yellow", rotate: 2 }
@@ -237,10 +237,10 @@ const flipbookData = {
                 title: "🌊 Sea (2)",
                 color: "sky",
                 photos: [
-                    { url: "img/summer holiday/sea/IMG_20250702_145804_726.jpg", caption: "Senja di Laut", tape: "orange", rotate: 2 },
-                    { url: "img/summer holiday/sea/IMG_20250710_145613_968.jpg", caption: "Tenang Hati", tape: "blue", rotate: -2 },
-                    { url: "img/summer holiday/sea/IMG_20250710_145614_872.jpg", caption: "Cakrawala", tape: "green", rotate: 1 },
-                    { url: "img/summer holiday/sea/IMG_20250710_145620_618.jpg", caption: "Ketenangan", tape: "yellow", rotate: -1 }
+                    { url: "img/summer holiday/sea/IMG_20250702_145804_726.jpg", caption: "", tape: "orange", rotate: 2 },
+                    { url: "img/summer holiday/sea/IMG_20250710_145613_968.jpg", caption: "", tape: "blue", rotate: -2 },
+                    { url: "img/summer holiday/sea/IMG_20250710_145614_872.jpg", caption: "", tape: "green", rotate: 1 },
+                    { url: "img/summer holiday/sea/IMG_20250710_145620_618.jpg", caption: "", tape: "yellow", rotate: -1 }
                 ]
             }
         ],
