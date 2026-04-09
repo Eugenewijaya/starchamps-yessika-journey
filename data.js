@@ -73,7 +73,7 @@ const flipbookData = {
             {
                 name: "Epid",
                 avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
-                message: `"see u on top, selalu dukung terus di karir selanjutnya."`,
+                message: `"Buset Ci Acen ngetiknya panjang bener jadi ga kebagian kertasnya weilahh. Btw Yess kedepannya bisa tenang gabakalan ada shooting sama ngapalin naskah lagi, pun kalo di tempat selanjutnya di suru bikin konten semoga orangnya bisa lebih sabar lagi, sukses terus deh ngejar impian lu"`,
                 color: "blue",
                 flexReverse: false
             },

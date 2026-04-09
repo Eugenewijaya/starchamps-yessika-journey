@@ -95,13 +95,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="text-left font-body text-xs md:text-[14px] text-gray-800 space-y-3 mt-2 leading-relaxed">
                         ${paras}
                         
+                        ${(msg.sender || msg.senderTitle) ? `
                         <div class="mt-6 text-right flex flex-col items-end">
-                            <div class="mb-2">
-                                <img src="img/LogoSCI.png" alt="Star Champs Logo" class="w-12 h-12 object-contain opacity-90">
-                            </div>
-                            <p class="font-heading font-bold text-gray-700 text-sm">${msg.sender}</p>
-                            <p class="font-body text-[10px] text-gray-500">${msg.senderTitle}</p>
-                        </div>
+                            ${msg.sender ? `<p class="font-heading font-bold text-gray-700 text-sm">${msg.sender}</p>` : ''}
+                            ${msg.senderTitle ? `<p class="font-body text-[10px] text-gray-500">${msg.senderTitle}</p>` : ''}
+                        </div>` : ''}
                     </div>
                 </div>
             `);
@@ -141,6 +139,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // 5. Friends Messages (2 per page)
+    // Ambil inisial nama asli (skip prefix Ms., Ci, Aa, Mr., Ibu, dll)
+    function getInitial(name) {
+        const prefixes = ['ms', 'mr', 'ci', 'aa', 'ibu', 'bpk', 'kak', 'om', 'tante'];
+        const parts = name.trim().split(/\s+/);
+        for (let part of parts) {
+            const clean = part.toLowerCase().replace(/\./g, '');
+            if (!prefixes.includes(clean)) {
+                return part.replace(/\./g, '').charAt(0).toUpperCase();
+            }
+        }
+        return parts[0].charAt(0).toUpperCase();
+    }
+
     if (data.friends) {
         for (let i = 0; i < data.friends.length; i += 2) {
             let f1 = data.friends[i];
@@ -148,7 +159,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
             let makeFriend = (f) => `
                 <div class="flex gap-3 items-center ${f.flexReverse ? 'flex-row-reverse text-right' : ''}">
-                    <img src="${f.avatar}" class="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover border-2 border-${f.color}-300 z-10" alt="Profile">
+                    <div class="friend-avatar bg-${f.color}-100 border-2 border-${f.color}-300 text-${f.color}-600">
+                        <span>${getInitial(f.name)}</span>
+                    </div>
                     <div class="chat-bubble flex-1 !border-${f.color}-300">
                         <p class="font-body text-gray-700 mobile-text-sm leading-tight">${f.message}</p>
                         <p class="mt-1 text-xs font-heading font-bold text-${f.color}-600">— ${f.name}</p>
@@ -216,7 +229,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="page-content flex flex-col justify-between">
                 <div>
                     <div class="photo-card tape-${data.closing.photo.tape} mb-4 mt-2" style="transform: rotate(${data.closing.photo.rotate}deg);">
-                        <img src="${data.closing.photo.url}" alt="${data.closing.photo.caption}" class="w-full h-24 md:h-32 object-cover mb-1 border border-gray-200 rounded-sm">
+                        <img src="${data.closing.photo.url}" alt="${data.closing.photo.caption}" class="w-full aspect-square object-cover mb-1 border border-gray-200 rounded-sm">
                         <p class="font-body text-[9px] md:text-[11px] text-center font-bold text-gray-600">${data.closing.photo.caption}</p>
                     </div>
 
