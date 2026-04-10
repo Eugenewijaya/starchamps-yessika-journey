@@ -92,7 +92,7 @@ const flipbookData = {
                 flexReverse: true
             },
             {
-                name: "Aa Firdaus",
+                name: "Aa Daus",
                 avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
                 message: `"Doa terbaik buat ms yesika.. Semoga sukses ya dan harapanya tercapai dan jangn lupain kita" Ya d Star Champs"`,
                 color: "purple",
@@ -109,7 +109,7 @@ const flipbookData = {
                 flexReverse: false
             },
             {
-                name: "Mr. Nathanael Timothy",
+                name: "Mr. Nathanael",
                 avatar: null,
                 message: `"Thankyou Yessikaa buat kebersamaannya selama ini!!\nKek ada yg kurang banget pastinya nanti...\nSukses buat kedepannya yaakkk, Jangan lupa selalu andelin Tuhan\nKedepannya penuh dengan hal hal baik serta kebahagiaan yang gaada habisnya\nJangan lupa nanti kalo ada waktu luang / kosong kita nongki nongki lagi wkwk\nTuhan Yesus Memberkatii yaaaa "`,
                 color: "blue",
@@ -130,7 +130,7 @@ const flipbookData = {
                 flexReverse: false
             },
             {
-                name: "Te yanah",
+                name: "Teh Yanah",
                 avatar: null,
                 message: `"GK nyangka banget akhir nyah hari ini Dateng! Sedih banget 😭 tapi juga bangga sama kamu. Semoga di tempat baru makin berkembang dan makin happy.. jangan pernah lupain kita" disini ya Miss love you🫶❤️❤️"`,
                 color: "yellow",
