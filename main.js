@@ -87,32 +87,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (data.messages) {
         data.messages.forEach(msg => {
             let paras = msg.content.map(p => `<p>${p}</p>`).join('');
-            
-            let timelineHtml = '';
-            if (msg.timeline && msg.timeline.length > 0) {
-                let eventsHtml = msg.timeline.map((event, idx) => `
-                    <div class="relative pl-4 border-l-2 border-${msg.color}-300 mb-2.5 last:mb-0">
-                        <div class="absolute w-2.5 h-2.5 bg-${msg.color}-500 rounded-full -left-[6px] top-1 border-2 border-white shadow-sm"></div>
-                        <p class="font-body text-[10px] md:text-[12px] text-gray-700 leading-tight font-medium">${event}</p>
-                    </div>
-                `).join('');
-                
-                timelineHtml = `
-                    <div class="mt-4 bg-${msg.color}-50 p-3 rounded-xl border border-${msg.color}-100 shadow-sm relative overflow-hidden">
-                        <div class="absolute top-0 right-0 p-2 opacity-10 blur-[1px]">
-                            <span class="text-4xl">🕰️</span>
-                        </div>
-                        <h4 class="font-heading font-bold text-${msg.color}-700 text-xs mb-3 flex items-center gap-1">
-                            <span>Jejak Langkah</span>
-                            <span class="text-[10px]">✨</span>
-                        </h4>
-                        <div class="space-y-1 relative z-10">
-                            ${eventsHtml}
-                        </div>
-                    </div>
-                `;
-            }
 
+            // Render Message Text Page
             html += wrapPage(`
                 <div class="page-content pt-6 relative">
                     <h2 class="font-heading text-xl md:text-2xl text-${msg.color}-600 font-bold mb-1 text-center">${msg.title}</h2>
@@ -121,8 +97,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="text-left font-body text-xs md:text-[14px] text-gray-800 space-y-3 mt-2 leading-relaxed">
                         ${paras}
                         
-                        ${timelineHtml}
-
                         ${(msg.sender || msg.senderTitle) ? `
                         <div class="mt-6 text-right flex flex-col items-end">
                             ${msg.sender ? `<p class="font-heading font-bold text-gray-700 text-sm">${msg.sender}</p>` : ''}
@@ -131,6 +105,41 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </div>
             `);
+
+            // Render Timeline Pages (if any)
+            if (msg.timeline && msg.timeline.length > 0) {
+                const CHUNK_SIZE = 8; // Adjust chunk size based on layout
+                for (let i = 0; i < msg.timeline.length; i += CHUNK_SIZE) {
+                    const chunk = msg.timeline.slice(i, i + CHUNK_SIZE);
+                    const eventsHtml = chunk.map((event) => `
+                        <div class="relative pl-4 border-l-2 border-${msg.color}-300 mb-2.5 last:mb-0">
+                            <div class="absolute w-2.5 h-2.5 bg-${msg.color}-500 rounded-full -left-[6px] top-1 border-2 border-white shadow-sm"></div>
+                            <p class="font-body text-[10px] md:text-[12px] text-gray-700 leading-tight font-medium">${event}</p>
+                        </div>
+                    `).join('');
+                    
+                    const pageSuffix = msg.timeline.length > CHUNK_SIZE ? ` (${Math.floor(i/CHUNK_SIZE) + 1})` : '';
+
+                    html += wrapPage(`
+                        <div class="page-content pt-6 relative">
+                            <h2 class="font-heading text-lg md:text-xl text-${msg.color}-600 font-bold mb-1 text-center flex items-center justify-center gap-2">
+                                <span>Jejak Langkah${pageSuffix}</span>
+                                <span class="text-sm">✨</span>
+                            </h2>
+                            <h3 class="font-body text-[10px] text-gray-400 text-center mb-4 italic">${msg.title}</h3>
+                            
+                            <div class="mt-2 bg-${msg.color}-50 p-4 rounded-xl border border-${msg.color}-100 shadow-sm relative overflow-hidden">
+                                <div class="absolute top-0 right-0 p-2 opacity-10 blur-[1px]">
+                                    <span class="text-4xl">🕰️</span>
+                                </div>
+                                <div class="space-y-1 relative z-10">
+                                    ${eventsHtml}
+                                </div>
+                            </div>
+                        </div>
+                    `);
+                }
+            }
         });
     }
 

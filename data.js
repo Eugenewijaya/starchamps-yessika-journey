@@ -42,18 +42,6 @@ const flipbookData = {
                     "Masih ingat saat menata ruangan untuk acara anak anak, menggunting kertas bergambar binatang dan membuat properti untuk aktivitas terapi lainnya? Melihat kesabaranmu menghadapi tantangan setiap anak, membimbing mereka menguasai keterampilan baru, dan merayakan pencapaian kecil mereka membuat kami sangat bangga. Kamu bukan hanya mengajar, tapi juga menyentuh hati mereka.",
                     "Teruslah bersinar dan membawa harapan di mana pun kamu berada! 🌟"
                 ],
-                timeline: [
-                    "Star Champs pertama kali buka",
-                    "Grand opening",
-                    "Melihat anak yang terapi pertama kali",
-                    "Acara Star Club",
-                    "Summer Holiday",
-                    "Walk for Autism",
-                    "Spekix",
-                    "TJOH",
-                    "Outing ke Taman Safari",
-                    "Tuker Kado Natal",
-                    "10 April 2026: Perjalanan selesai"
                 ],
                 sender: null,
                 senderTitle: null
