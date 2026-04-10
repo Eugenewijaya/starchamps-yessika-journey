@@ -87,6 +87,32 @@ document.addEventListener('DOMContentLoaded', function() {
     if (data.messages) {
         data.messages.forEach(msg => {
             let paras = msg.content.map(p => `<p>${p}</p>`).join('');
+            
+            let timelineHtml = '';
+            if (msg.timeline && msg.timeline.length > 0) {
+                let eventsHtml = msg.timeline.map((event, idx) => `
+                    <div class="relative pl-4 border-l-2 border-${msg.color}-300 mb-2.5 last:mb-0">
+                        <div class="absolute w-2.5 h-2.5 bg-${msg.color}-500 rounded-full -left-[6px] top-1 border-2 border-white shadow-sm"></div>
+                        <p class="font-body text-[10px] md:text-[12px] text-gray-700 leading-tight font-medium">${event}</p>
+                    </div>
+                `).join('');
+                
+                timelineHtml = `
+                    <div class="mt-4 bg-${msg.color}-50 p-3 rounded-xl border border-${msg.color}-100 shadow-sm relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-2 opacity-10 blur-[1px]">
+                            <span class="text-4xl">🕰️</span>
+                        </div>
+                        <h4 class="font-heading font-bold text-${msg.color}-700 text-xs mb-3 flex items-center gap-1">
+                            <span>Jejak Langkah</span>
+                            <span class="text-[10px]">✨</span>
+                        </h4>
+                        <div class="space-y-1 relative z-10">
+                            ${eventsHtml}
+                        </div>
+                    </div>
+                `;
+            }
+
             html += wrapPage(`
                 <div class="page-content pt-6 relative">
                     <h2 class="font-heading text-xl md:text-2xl text-${msg.color}-600 font-bold mb-1 text-center">${msg.title}</h2>
@@ -95,6 +121,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="text-left font-body text-xs md:text-[14px] text-gray-800 space-y-3 mt-2 leading-relaxed">
                         ${paras}
                         
+                        ${timelineHtml}
+
                         ${(msg.sender || msg.senderTitle) ? `
                         <div class="mt-6 text-right flex flex-col items-end">
                             ${msg.sender ? `<p class="font-heading font-bold text-gray-700 text-sm">${msg.sender}</p>` : ''}

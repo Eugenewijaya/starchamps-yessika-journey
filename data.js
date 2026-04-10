@@ -39,8 +39,21 @@ const flipbookData = {
                 content: [
                     "Halo Ms. Yessika,",
                     "Kami masih ingat betul senyum hangatmu saat pertama kali menyambut anak-anak dan orang tua di meja <strong>Frontdesk</strong>. Siapa sangka, kelembutan hati itu membawamu melangkah lebih jauh menjadi seorang <strong>Terapis Pendidikan Khusus</strong> yang sangat diandalkan di Star Champs!",
-                    "Melihat kesabaranmu menghadapi tantangan setiap anak, membimbing mereka menguasai keterampilan baru, dan merayakan pencapaian kecil mereka membuat kami sangat bangga. Kamu bukan hanya mengajar, tapi juga menyentuh hati mereka.",
+                    "Masih ingat saat menata ruangan untuk acara anak anak, menggunting kertas bergambar binatang dan membuat properti untuk aktivitas terapi lainnya? Melihat kesabaranmu menghadapi tantangan setiap anak, membimbing mereka menguasai keterampilan baru, dan merayakan pencapaian kecil mereka membuat kami sangat bangga. Kamu bukan hanya mengajar, tapi juga menyentuh hati mereka.",
                     "Teruslah bersinar dan membawa harapan di mana pun kamu berada! 🌟"
+                ],
+                timeline: [
+                    "Star Champs pertama kali buka",
+                    "Grand opening",
+                    "Melihat anak yang terapi pertama kali",
+                    "Acara Star Club",
+                    "Summer Holiday",
+                    "Walk for Autism",
+                    "Spekix",
+                    "TJOH",
+                    "Outing ke Taman Safari",
+                    "Tuker Kado Natal",
+                    "10 April 2026: Perjalanan selesai"
                 ],
                 sender: null,
                 senderTitle: null
@@ -48,8 +61,8 @@ const flipbookData = {
         ],
         stats: {
             bars: [
-                { label: "Level Kesabaran 🧘♂️", value: "1000%", percent: 100, color: "blue" },
-                { label: "Energi Bermain 🏃♂️", value: "95%", percent: 95, color: "green" },
+                { label: "Level Kesabaran 💖", value: "1000%", percent: 100, color: "blue" },
+                { label: "Energi Bermain ⚡", value: "95%", percent: 95, color: "green" },
                 { label: "Stok Senyuman 😊", value: "99%", percent: 99, color: "pink" }
             ],
             funFacts: [
