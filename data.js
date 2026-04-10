@@ -273,46 +273,13 @@ const flipbookData = {
             },
             {
                 title: "Momen Bersama Lainnya (1)",
-                color: "pink",
-                photos: [
-                    { url: "img/WhatsApp Image 2026-03-31 at 11.05.47.jpeg", caption: "", tape: "pink", rotate: 1 },
-                    { url: "img/WhatsApp Image 2026-03-31 at 11.05.54 (1).jpeg", caption: "", tape: "blue", rotate: -2 },
-                    { url: "img/WhatsApp Image 2026-03-31 at 11.05.54.jpeg", caption: "", tape: "yellow", rotate: 2 },
-                    { url: "img/WhatsApp Image 2026-03-31 at 11.05.55.jpeg", caption: "", tape: "green", rotate: -1 }
-                ]
-            },
-            {
-                title: "Momen Bersama Lainnya (2)",
-                color: "purple",
-                photos: [
-                    { url: "img/WhatsApp Image 2026-03-31 at 11.05.56.jpeg", caption: "", tape: "orange", rotate: 2 },
-                    { url: "img/WhatsApp Image 2026-03-31 at 11.05.57.jpeg", caption: "", tape: "pink", rotate: -1 },
-                    { url: "img/WhatsApp Image 2026-03-31 at 11.05.59 (1).jpeg", caption: "", tape: "blue", rotate: 1 },
-                    { url: "img/WhatsApp Image 2026-03-31 at 11.05.59.jpeg", caption: "", tape: "green", rotate: -2 }
-                ]
-            },
-            {
-                title: "Momen Bersama Lainnya (3)",
-                color: "yellow",
-                photos: [
-                    { url: "img/WhatsApp Image 2026-03-31 at 11.06.00.jpeg", caption: "", tape: "yellow", rotate: 1 },
-                    { url: "img/WhatsApp Image 2026-03-31 at 11.06.12.jpeg", caption: "", tape: "blue", rotate: -2 },
-                    { url: "img/WhatsApp Image 2026-03-31 at 11.06.13.jpeg", caption: "", tape: "pink", rotate: 2 },
-                    { url: "img/WhatsApp Image 2026-03-31 at 11.06.14 (1).jpeg", caption: "", tape: "orange", rotate: -1 }
-                ]
-            },
-            {
-                title: "Momen Bersama Lainnya (4)",
                 color: "green",
                 photos: [
-                    { url: "img/WhatsApp Image 2026-03-31 at 11.06.14.jpeg", caption: "", tape: "green", rotate: -2 },
-                    { url: "img/WhatsApp Image 2026-03-31 at 11.06.15.jpeg", caption: "", tape: "yellow", rotate: 1 },
-                    { url: "img/WhatsApp Image 2026-03-31 at 11.06.16.jpeg", caption: "", tape: "blue", rotate: -1 },
                     { url: "img/WhatsApp Image 2026-04-10 at 17.07.25 (1).jpeg", caption: "", tape: "pink", rotate: 2 }
                 ]
             },
             {
-                title: "Momen Bersama Lainnya (5)",
+                title: "Momen Bersama Lainnya (2)",
                 color: "sky",
                 photos: [
                     { url: "img/WhatsApp Image 2026-04-10 at 17.07.25 (2).jpeg", caption: "", tape: "orange", rotate: 1 },
@@ -322,7 +289,7 @@ const flipbookData = {
                 ]
             },
             {
-                title: "Momen Bersama Lainnya (6)",
+                title: "Momen Bersama Lainnya (3)",
                 color: "blue",
                 photos: [
                     { url: "img/WhatsApp Image 2026-04-10 at 17.09.39.jpeg", caption: "", tape: "pink", rotate: 2 },
@@ -332,7 +299,7 @@ const flipbookData = {
                 ]
             },
             {
-                title: "Momen Bersama Lainnya (7)",
+                title: "Momen Bersama Lainnya (4)",
                 color: "orange",
                 photos: [
                     { url: "img/WhatsApp Image 2026-04-10 at 17.09.44.jpeg", caption: "", tape: "yellow", rotate: -1 },
