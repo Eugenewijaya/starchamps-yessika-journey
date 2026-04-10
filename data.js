@@ -150,9 +150,9 @@ const flipbookData = {
                 color: "pink",
                 photos: [
                     { url: "img/WhatsApp Image 2026-03-31 at 11.05.53.jpeg", caption: "Senyum Tulus", tape: "pink", rotate: -1 },
-                    { url: "img/yessikaryu.jpeg", caption: "Bareng Adik Ryu", tape: "blue", rotate: 1 },
+                    { url: "img/yessikaryu.jpeg", caption: "", tape: "blue", rotate: 1 },
                     { url: "img/WhatsApp Image 2026-03-31 at 11.05.52.jpeg", caption: "Momen Ceria", tape: "yellow", rotate: 2 }
-                ]
+                ] 
             },
             {
                 title: "❤️",
