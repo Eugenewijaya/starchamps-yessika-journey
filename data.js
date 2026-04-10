@@ -21,7 +21,6 @@ const flipbookData = {
                 subtitle: "Pesan Spesial untuk Ms. Yessika",
                 color: "purple",
                 icon: "✒️",
-                lockedUntil: "2026-04-15T00:00:00+07:00",
                 content: [
                     "Halo Ms. Yessika,",
                     "Terima kasih dari hati yang paling dalam karena telah setia menemani perjalanan Star Champs sejak awal mula pembukaan hingga bisa beroperasional dengan baik sampai saat ini.",
@@ -47,13 +46,6 @@ const flipbookData = {
                 senderTitle: null
             }
         ],
-        bossMessage: {
-            title: "Pesan dari Atasan",
-            subtitle: "Untuk Ms. Yessika",
-            color: "indigo",
-            type: "lockedBubbles",
-            lockedUntil: "2026-04-15T00:00:00+07:00"
-        },
         stats: {
             bars: [
                 { label: "Level Kesabaran 🧘♂️", value: "1000%", percent: 100, color: "blue" },
