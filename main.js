@@ -248,17 +248,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             let makeFriend = (f) => {
-                let avatarContent = "";
-                let avatarClass = `friend-avatar bg-${f.color}-100 border-2 border-${f.color}-300 text-${f.color}-600`;
-                
-                if (f.avatar) {
-                    avatarContent = `<img src="${f.avatar}" alt="${f.name}" class="w-full h-full object-cover rounded-full">`;
-                } else {
-                    const emoji = foodEmojis[foodIdx % foodEmojis.length];
-                    foodIdx++;
-                    avatarContent = `<span>${emoji}</span>`;
-                    avatarClass += " anim-wobble text-2xl"; // Gunakan animasi gerak
-                }
+                const emoji = foodEmojis[foodIdx % foodEmojis.length];
+                foodIdx++;
+                let avatarContent = `<span>${emoji}</span>`;
+                let avatarClass = `friend-avatar bg-${f.color}-100 border-2 border-${f.color}-300 text-${f.color}-600 anim-wobble text-2xl`;
 
                 return `
                 <div class="flex gap-3 items-center ${f.flexReverse ? 'flex-row-reverse text-right' : ''}">
