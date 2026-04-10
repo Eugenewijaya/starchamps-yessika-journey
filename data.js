@@ -143,6 +143,13 @@ const flipbookData = {
                 message: `"Terimakasih Ms yess sudah menjadi teman ngobrol & makan siang yg seruu!! Sukses terus ditempat baru, semoga karirmu semakin bersinar, sampai berjumpa dilain kesempatan:)"`,
                 color: "pink",
                 flexReverse: true
+            },
+            {
+                name: "Te yanah",
+                avatar: null,
+                message: `"GK nyangka banget akhir nyah hari ini Dateng! Sedih banget 😭 tapi juga bangga sama kamu. Semoga di tempat baru makin berkembang dan makin happy.. jangan pernah lupain kita" disini ya Miss love you🫶❤️❤️"`,
+                color: "yellow",
+                flexReverse: false
             }
         ],
         galleries: [
@@ -150,10 +157,17 @@ const flipbookData = {
                 title: "Wihh kita lagi bareng Adik Ryu",
                 color: "pink",
                 photos: [
+                    { url: "img/WhatsApp Image 2026-03-31 at 11.05.53.jpeg", caption: "Senyum Tulus", tape: "pink", rotate: -1 },
+                    { url: "img/yessikaryu.jpeg", caption: "Bareng Adik Ryu", tape: "blue", rotate: 1 },
+                    { url: "img/WhatsApp Image 2026-03-31 at 11.05.52.jpeg", caption: "Momen Ceria", tape: "yellow", rotate: 2 }
+                ]
+            },
+            {
+                title: "❤️",
+                color: "pink",
+                photos: [
                     { url: "https://i.ibb.co.com/x8rSjhtq/IMG-4087.jpg", caption: "Langkah Awal", tape: "blue", rotate: 1 },
-                    { url: "img/WhatsApp Image 2026-03-31 at 11.05.51.jpeg", caption: "", tape: "green", rotate: -2 },
-                    { url: "img/WhatsApp Image 2026-03-31 at 11.05.52.jpeg", caption: "", tape: "yellow", rotate: 2 },
-                    { url: "img/WhatsApp Image 2026-03-31 at 11.05.53.jpeg", caption: "", tape: "pink", rotate: -1 }
+                    { url: "img/WhatsApp Image 2026-03-31 at 11.05.51.jpeg", caption: "Kebersamaan", tape: "green", rotate: -2 }
                 ]
             },
             {
