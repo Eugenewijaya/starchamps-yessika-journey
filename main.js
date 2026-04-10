@@ -86,20 +86,51 @@ document.addEventListener('DOMContentLoaded', function() {
     // 3. Messages
     if (data.messages) {
         data.messages.forEach(msg => {
+            let contentHtml = "";
+
             let paras = msg.content.map(p => `<p>${p}</p>`).join('');
-            html += wrapPage(`
-                <div class="page-content pt-6 relative">
-                    <h2 class="font-heading text-xl md:text-2xl text-${msg.color}-600 font-bold mb-1 text-center">${msg.title}</h2>
-                    <h3 class="font-body text-xs text-gray-500 text-center mb-4">${msg.subtitle}</h3>
-                    
-                    <div class="text-left font-body text-xs md:text-[14px] text-gray-800 space-y-3 mt-2 leading-relaxed">
-                        ${paras}
+            let normalContent = `
+                <div class="text-left font-body text-xs md:text-[14px] text-gray-800 space-y-3 mt-2 leading-relaxed">
+                    ${paras}
+                    ${(msg.sender || msg.senderTitle) ? `
+                    <div class="mt-6 text-right flex flex-col items-end">
+                        ${msg.sender ? `<p class="font-heading font-bold text-gray-700 text-sm">${msg.sender}</p>` : ''}
+                        ${msg.senderTitle ? `<p class="font-body text-[10px] text-gray-500">${msg.senderTitle}</p>` : ''}
+                    </div>` : ''}
+                </div>
+            `;
+
+            if (msg.lockedUntil) {
+                contentHtml = `
+                    <div class="relative w-full h-full locked-message-wrapper" data-unlock-time="${msg.lockedUntil}">
+                        <div class="locked-content filter blur-[5px] select-none pointer-events-none opacity-40 transition-all duration-1000">
+                            ${normalContent}
+                        </div>
                         
-                        ${(msg.sender || msg.senderTitle) ? `
-                        <div class="mt-6 text-right flex flex-col items-end">
-                            ${msg.sender ? `<p class="font-heading font-bold text-gray-700 text-sm">${msg.sender}</p>` : ''}
-                            ${msg.senderTitle ? `<p class="font-body text-[10px] text-gray-500">${msg.senderTitle}</p>` : ''}
-                        </div>` : ''}
+                        <div class="locked-overlay absolute inset-0 flex flex-col items-center place-content-center z-10 pt-4 transition-all duration-1000">
+                            <div class="bg-white/95 p-4 rounded-xl shadow-lg border-2 border-purple-200 text-center relative max-w-[85%]">
+                                <span class="text-4xl block mb-2">🔐</span>
+                                <p class="font-heading font-bold text-purple-700 mt-1 leading-tight">Pesan Terkunci</p>
+                                <p class="font-body text-[10px] text-gray-500 mt-1 mb-2">Dapat dibuka dalam:</p>
+                                <div class="countdown-timer flex gap-1 justify-center font-heading font-bold text-orange-600 text-xs md:text-sm bg-orange-50 px-2 py-1.5 rounded border border-orange-100">
+                                    Menghitung...
+                                </div>
+                                <p class="font-body text-[9px] text-gray-400 mt-2 italic">15 April 2026</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else {
+                contentHtml = normalContent;
+            }
+
+            html += wrapPage(`
+                <div class="page-content pt-6 relative flex flex-col">
+                    <h2 class="font-heading text-xl md:text-2xl text-${msg.color}-600 font-bold mb-1 text-center">${msg.title}</h2>
+                    ${msg.subtitle ? `<h3 class="font-body text-xs text-gray-500 text-center mb-4">${msg.subtitle}</h3>` : ''}
+                    
+                    <div class="flex-1 ${msg.lockedUntil ? 'relative' : ''}">
+                        ${contentHtml}
                     </div>
                 </div>
             `);
@@ -133,6 +164,52 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="grid grid-cols-2 gap-2 mt-4">
                         ${factsHtml}
                     </div>
+                </div>
+            </div>
+        `);
+    }
+
+    // 4.5. Boss Message (Menyusul setelah Raport)
+    if (data.bossMessage) {
+        let msg = data.bossMessage;
+        let contentHtml = `
+            <div class="relative w-full h-full locked-message-wrapper mt-2" data-unlock-time="${msg.lockedUntil || ''}">
+                <div class="locked-content space-y-4 filter blur-[5px] select-none pointer-events-none opacity-60 px-1 mt-6 transition-all duration-1000">
+                    <div class="flex gap-3 items-center">
+                        <div class="w-10 h-10 rounded-full bg-indigo-200 animate-pulse shrink-0"></div>
+                        <div class="flex-1 bg-indigo-50 border border-indigo-100 rounded-xl rounded-tl-none p-3 h-16 animate-pulse"></div>
+                    </div>
+                    <div class="flex gap-3 items-center flex-row-reverse">
+                        <div class="w-10 h-10 rounded-full bg-blue-200 animate-pulse shrink-0"></div>
+                        <div class="flex-1 bg-blue-50 border border-blue-100 rounded-xl rounded-tr-none p-3 h-20 animate-pulse"></div>
+                    </div>
+                    <div class="flex gap-3 items-center">
+                        <div class="w-10 h-10 rounded-full bg-purple-200 animate-pulse shrink-0"></div>
+                        <div class="flex-1 bg-purple-50 border border-purple-100 rounded-xl rounded-tl-none p-3 h-12 animate-pulse"></div>
+                    </div>
+                </div>
+                
+                <div class="locked-overlay absolute inset-0 flex flex-col items-center place-content-center z-10 pt-4 transition-all duration-1000">
+                    <div class="bg-white/95 p-4 rounded-xl shadow-lg border-2 border-indigo-200 text-center transform rotate-1 backdrop-blur-sm relative max-w-[85%]">
+                        <span class="text-4xl block mb-2">🔐</span>
+                        <p class="font-heading font-bold text-indigo-700 mt-1 leading-tight">Pesan Terkunci</p>
+                        <p class="font-body text-[10px] text-gray-500 mt-1 mb-2">Dapat dibuka dalam:</p>
+                        <div class="countdown-timer flex gap-1 justify-center font-heading font-bold text-orange-600 text-xs md:text-sm bg-orange-50 px-2 py-1.5 rounded border border-orange-100">
+                            Menghitung...
+                        </div>
+                        <p class="font-body text-[9px] text-gray-400 mt-2 italic">Menunggu atasan pulih.</p>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        html += wrapPage(`
+            <div class="page-content pt-6 relative flex flex-col">
+                <h2 class="font-heading text-xl md:text-2xl text-${msg.color}-600 font-bold mb-1 text-center">${msg.title}</h2>
+                ${msg.subtitle ? `<h3 class="font-body text-xs text-gray-500 text-center mb-4">${msg.subtitle}</h3>` : ''}
+                
+                <div class="flex-1 relative">
+                    ${contentHtml}
                 </div>
             </div>
         `);
@@ -385,4 +462,48 @@ document.addEventListener('DOMContentLoaded', function() {
             isMusicPlaying = !isMusicPlaying;
         });
     }
+
+    // --- LOGIKA COUNTDOWN UNTUK PESAN TERKUNCI ---
+    function updateCountdowns() {
+        const wrappers = document.querySelectorAll('.locked-message-wrapper');
+        wrappers.forEach(wrapper => {
+            const unlockTimeStr = wrapper.getAttribute('data-unlock-time');
+            if(!unlockTimeStr) return;
+            
+            const unlockTime = new Date(unlockTimeStr).getTime();
+            const now = new Date().getTime();
+            const distance = unlockTime - now;
+            
+            const overlay = wrapper.querySelector('.locked-overlay');
+            const content = wrapper.querySelector('.locked-content');
+            const timerEl = wrapper.querySelector('.countdown-timer');
+
+            if (distance < 0) {
+                // Waktu sudah lewat, buka kunci
+                if(overlay) {
+                    overlay.style.opacity = '0';
+                    setTimeout(() => overlay.remove(), 500);
+                }
+                if(content) {
+                    content.classList.remove('blur-[5px]', 'select-none', 'pointer-events-none', 'opacity-40');
+                    content.classList.add('opacity-100');
+                }
+            } else {
+                // Hitung sisa waktu
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                if(timerEl) {
+                    timerEl.innerHTML = `${days}h ${hours}j ${minutes}m ${seconds}s`;
+                }
+            }
+        });
+    }
+    
+    // Jalankan segera, lalu ulangi tiap detik
+    updateCountdowns();
+    setInterval(updateCountdowns, 1000);
+
 });

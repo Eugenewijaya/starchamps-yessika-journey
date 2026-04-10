@@ -21,6 +21,7 @@ const flipbookData = {
                 subtitle: "Pesan Spesial untuk Ms. Yessika",
                 color: "purple",
                 icon: "✒️",
+                lockedUntil: "2026-04-15T00:00:00+07:00",
                 content: [
                     "Halo Ms. Yessika,",
                     "Terima kasih dari hati yang paling dalam karena telah setia menemani perjalanan Star Champs sejak awal mula pembukaan hingga bisa beroperasional dengan baik sampai saat ini.",
@@ -46,6 +47,13 @@ const flipbookData = {
                 senderTitle: null
             }
         ],
+        bossMessage: {
+            title: "Pesan dari Atasan",
+            subtitle: "Untuk Ms. Yessika",
+            color: "indigo",
+            type: "lockedBubbles",
+            lockedUntil: "2026-04-15T00:00:00+07:00"
+        },
         stats: {
             bars: [
                 { label: "Level Kesabaran 🧘♂️", value: "1000%", percent: 100, color: "blue" },
@@ -120,6 +128,20 @@ const flipbookData = {
                 avatar: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&h=100&fit=crop",
                 message: `"Sukses dengan pekerjaan yang baru"`,
                 color: "red",
+                flexReverse: true
+            },
+            {
+                name: "Mr. Nathanael Timothy",
+                avatar: null,
+                message: `"Thankyou Yessikaa buat kebersamaannya selama ini!!\nKek ada yg kurang banget pastinya nanti...\nSukses buat kedepannya yaakkk, Jangan lupa selalu andelin Tuhan\nKedepannya penuh dengan hal hal baik serta kebahagiaan yang gaada habisnya\nJangan lupa nanti kalo ada waktu luang / kosong kita nongki nongki lagi wkwk\nTuhan Yesus Memberkatii yaaaa "`,
+                color: "blue",
+                flexReverse: false
+            },
+            {
+                name: "Teh bila",
+                avatar: null,
+                message: `"Terimakasih Ms yess sudah menjadi teman ngobrol & makan siang yg seruu!! Sukses terus ditempat baru, semoga karirmu semakin bersinar, sampai berjumpa dilain kesempatan:)"`,
+                color: "pink",
                 flexReverse: true
             }
         ],
