@@ -117,20 +117,6 @@ const flipbookData = {
                 flexReverse: false
             },
             {
-                name: "Ms. Emma",
-                avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",
-                message: `"Yessikuyy ❤️ Wishing you the best journey and chapter! Sangat bersyukur kamu bisa jadi bagian dari perjalanan aku disini, aku bakal kangen poll yess.. I'm really proud of you! Thank you sudah melakukan bagian yang terbaik untuk anak-anak disini.. We love you 🫶🏻"`,
-                color: "orange",
-                flexReverse: true
-            },
-            {
-                name: "Ms. Gina",
-                avatar: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&h=100&fit=crop",
-                message: `"Sukses dengan pekerjaan yang baru"`,
-                color: "red",
-                flexReverse: true
-            },
-            {
                 name: "Mr. Nathanael Timothy",
                 avatar: null,
                 message: `"Thankyou Yessikaa buat kebersamaannya selama ini!!\nKek ada yg kurang banget pastinya nanti...\nSukses buat kedepannya yaakkk, Jangan lupa selalu andelin Tuhan\nKedepannya penuh dengan hal hal baik serta kebahagiaan yang gaada habisnya\nJangan lupa nanti kalo ada waktu luang / kosong kita nongki nongki lagi wkwk\nTuhan Yesus Memberkatii yaaaa "`,
@@ -145,10 +131,24 @@ const flipbookData = {
                 flexReverse: true
             },
             {
+                name: "Ms. Emma",
+                avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",
+                message: `"Yessikuyy ❤️ Wishing you the best journey and chapter! Sangat bersyukur kamu bisa jadi bagian dari perjalanan aku disini, aku bakal kangen poll yess.. I'm really proud of you! Thank you sudah melakukan bagian yang terbaik untuk anak-anak disini.. We love you 🫶🏻"`,
+                color: "orange",
+                flexReverse: false
+            },
+            {
                 name: "Te yanah",
                 avatar: null,
                 message: `"GK nyangka banget akhir nyah hari ini Dateng! Sedih banget 😭 tapi juga bangga sama kamu. Semoga di tempat baru makin berkembang dan makin happy.. jangan pernah lupain kita" disini ya Miss love you🫶❤️❤️"`,
                 color: "yellow",
+                flexReverse: true
+            },
+            {
+                name: "Ms. Gina",
+                avatar: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&h=100&fit=crop",
+                message: `"Sukses dengan pekerjaan yang baru"`,
+                color: "red",
                 flexReverse: false
             }
         ],

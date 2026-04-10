@@ -229,29 +229,58 @@ document.addEventListener('DOMContentLoaded', function() {
         return parts[0].charAt(0).toUpperCase();
     }
 
-    if (data.friends) {
-        for (let i = 0; i < data.friends.length; i += 2) {
-            let f1 = data.friends[i];
-            let f2 = data.friends[i+1];
+    const foodEmojis = ['🍰', '🍦', '🍩', '🍪', '🍬', '🍭', '🍮', '🍱', '🍜', '🍣', '🍙', '🍘', '🍛', '🍲'];
+    let foodIdx = 0;
 
-            let makeFriend = (f) => `
+    if (data.friends) {
+        let i = 0;
+        let pageNumDisp = 1;
+        
+        while (i < data.friends.length) {
+            let chunk = [];
+            // Jika sisa tinggal 3, gabungkan jadi satu halaman (permintaan user)
+            if (data.friends.length - i === 3) {
+                chunk = data.friends.slice(i, i + 3);
+                i += 3;
+            } else {
+                chunk = data.friends.slice(i, Math.min(i + 2, data.friends.length));
+                i += 2;
+            }
+
+            let makeFriend = (f) => {
+                let avatarContent = "";
+                let avatarClass = `friend-avatar bg-${f.color}-100 border-2 border-${f.color}-300 text-${f.color}-600`;
+                
+                if (f.avatar) {
+                    avatarContent = `<img src="${f.avatar}" alt="${f.name}" class="w-full h-full object-cover rounded-full">`;
+                } else {
+                    const emoji = foodEmojis[foodIdx % foodEmojis.length];
+                    foodIdx++;
+                    avatarContent = `<span>${emoji}</span>`;
+                    avatarClass += " anim-wobble text-2xl"; // Gunakan animasi gerak
+                }
+
+                return `
                 <div class="flex gap-3 items-center ${f.flexReverse ? 'flex-row-reverse text-right' : ''}">
-                    <div class="friend-avatar bg-${f.color}-100 border-2 border-${f.color}-300 text-${f.color}-600">
-                        <span>${getInitial(f.name)}</span>
+                    <div class="${avatarClass}">
+                        ${avatarContent}
                     </div>
                     <div class="chat-bubble flex-1 !border-${f.color}-300">
                         <p class="font-body text-gray-700 mobile-text-sm leading-tight">${f.message}</p>
                         <p class="mt-1 text-xs font-heading font-bold text-${f.color}-600">— ${f.name}</p>
                     </div>
                 </div>
-            `;
+                `;
+            };
 
-            let pageNumDisp = (i/2) + 1;
+            let f1 = chunk[0];
             let pColor = f1.color;
             let decoIcon = (f1.icon) ? `<span class="absolute ${f1.iconPos} text-3xl opacity-50 transform ${f1.iconRotate}">${f1.icon}</span>` : '';
+            
+            let friendsHtml = chunk.map(f => makeFriend(f)).join('');
 
             let aiNoticeHtml = "";
-            if (i + 2 >= data.friends.length) {
+            if (i >= data.friends.length) {
                 aiNoticeHtml = `
                     <div class="mt-3 w-full text-center">
                         <div class="bg-gray-50 border border-gray-200 rounded-lg p-3 shadow-sm inline-block transform -rotate-1 text-left">
@@ -264,10 +293,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
             html += wrapPage(`
                 <div class="page-content relative">
-                    <h2 class="font-heading text-lg text-${pColor}-500 font-bold mb-4 text-center border-b-2 border-dotted border-${pColor}-200 pb-1">Pesan dari Tim Star Champs (${pageNumDisp})</h2>
+                    <h2 class="font-heading text-lg text-${pColor}-500 font-bold mb-4 text-center border-b-2 border-dotted border-${pColor}-200 pb-1">Pesan dari Tim Star Champs (${pageNumDisp++})</h2>
                     <div class="space-y-4 mt-2 mb-2">
-                        ${makeFriend(f1)}
-                        ${f2 ? makeFriend(f2) : ''}
+                        ${friendsHtml}
                     </div>
                     ${aiNoticeHtml}
                     ${decoIcon}

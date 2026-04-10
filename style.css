@@ -242,3 +242,12 @@ body::after {
     50%  { transform: scale(1.08) rotate(2deg); }
     100% { transform: scale(1) rotate(-3deg); }
 }
+
+.anim-wobble {
+    animation: foodWobble 1.5s ease-in-out infinite !important;
+}
+
+@keyframes foodWobble {
+    0%, 100% { transform: rotate(-8deg) translateY(0); }
+    50% { transform: rotate(8deg) translateY(-8px); }
+}
