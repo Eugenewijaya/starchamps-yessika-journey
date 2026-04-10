@@ -276,9 +276,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (data.closing) {
         html += wrapPage(`
             <div class="page-content flex flex-col justify-center items-center py-4">
-                <div class="photo-card tape-${data.closing.photo.tape} mb-6" style="width: 85%; max-width: 280px; transform: rotate(${data.closing.photo.rotate}deg);">
+                <div class="photo-card tape-${data.closing.photo.tape} mb-6" style="width: 75%; max-width: 260px; transform: rotate(${data.closing.photo.rotate}deg);">
                     <img src="${data.closing.photo.url}" alt="${data.closing.photo.caption}" class="w-full h-auto object-contain border border-gray-100 rounded-sm bg-gray-50 shadow-inner">
-                    <p class="font-body text-[10px] md:text-[12px] text-center font-bold text-gray-600 mt-3 mb-1 px-1">${data.closing.photo.caption}</p>
+                    <p class="font-body text-[14px] md:text-[18px] text-center font-bold text-gray-600 mt-3 mb-1 px-1">${data.closing.photo.caption}</p>
                 </div>
 
                 <div class="text-center bg-green-50/80 p-4 border-2 border-dashed border-green-300 rounded-2xl shadow-sm backdrop-blur-[2px] w-full max-w-[95%]">

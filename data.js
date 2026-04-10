@@ -286,7 +286,7 @@ const flipbookData = {
             }
         ],
         closing: {
-            photo: { url: "SCIYSSK-26.svg", caption: "Momen Perpisahan Star Champs (2026)", tape: "pink", rotate: -1 },
+            photo: { url: "SCIYSSK-26.svg", caption: "❤️", tape: "pink", rotate: -1 },
             title: "Terima Kasih! 👋",
             message: "Terima kasih banyak atas dedikasi dan kerja kerasmu. Semoga sukses dan beruntung di perjalanan karirmu selanjutnya!<br> Pintu Star Champs selalu terbuka untukmu.",
             quote: "\"Setiap anak adalah bintang, dan kamu membantu mereka bersinar.\" ✨"
