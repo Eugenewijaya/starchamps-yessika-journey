@@ -9,7 +9,7 @@
 
 A personalized, interactive digital flipbook designed to celebrate the journey, achievements, and memorable moments of **Ms. Yessika** at **Star Champs Indonesia**. 
 
-[Explore the Features](#-key-features) • [Installation](#%EF%B8%8F-quick-start-installation) • [Configuration](#%E2%9A%99%EF%B8%8F-configuration-guide) • [Contributing](#-contributing)
+[Explore the Features](#key-features) • [Installation](#quick-start-installation) • [Configuration](#configuration-guide) • [Contributing](#contributing)
 
 </div>
 
@@ -63,36 +63,42 @@ A clean, logical organization of assets and source code:
     ├── TJOH/                 # Event-specific folders
     ├── Christmas/
     └── Event WFA/
+```
 
-    🏎️ Quick Start: Installation
-No complex server environments or build steps required.
+---
 
-Clone the repository:
+## 🏎️ Quick Start: Installation
 
-Bash
-git clone [https://github.com/Eugenewijaya/starchamps-yessika-journey.git](https://github.com/Eugenewijaya/starchamps-yessika-journey.git)
-Navigate into the directory:
+No complex server environments or build steps required. 
 
-Bash
-cd starchamps-yessika-journey
-Launch the application:
-Simply open index.html in your preferred modern web browser.
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/Eugenewijaya/starchamps-yessika-journey.git](https://github.com/Eugenewijaya/starchamps-yessika-journey.git)
+    ```
+2.  **Navigate into the directory:**
+    ```bash
+    cd starchamps-yessika-journey
+    ```
+3.  **Launch the application:**
+    Simply open `index.html` in your preferred modern web browser.
+    * *macOS*: `open index.html`
+    * *Windows*: `start index.html`
 
-macOS: open index.html
+### Usage Example
+To view a specific staff member's journey, append their ID as a URL parameter:
+`index.html?staff=yessika`
 
-Windows: start index.html
+*(Note: If no parameter is provided, it defaults to `yessika`. Invalid IDs will trigger a custom error UI).*
 
-Usage Example
-To view a specific staff member's journey, append their ID as a URL parameter:index.html?staff=yessika
+---
 
-(Note: If no parameter is provided, it defaults to yessika. Invalid IDs will trigger a custom error UI).
+## ⚙️ Configuration Guide
 
-⚙️ Configuration Guide
-The flipbook is highly extensible. All personalized content is managed inside data.js via the flipbookData object.
+The flipbook is highly extensible. All personalized content is managed inside `data.js` via the `flipbookData` object.
 
 Here is the schema for adding or modifying a staff member:
 
-JavaScript
+```javascript
 const flipbookData = {
     "yessika": { // Matches the '?staff=yessika' URL parameter
         config: {
@@ -127,27 +133,32 @@ const flipbookData = {
     }
     // Add new staff objects here...
 };
-🤝 Contributing
-Contributions, issues, and feature requests are always welcome!
+```
 
-Fork the project.
+---
 
-Create your Feature Branch (git checkout -b feature/AmazingFeature).
+## 🤝 Contributing
 
-Commit your Changes (git commit -m 'feat: Add some AmazingFeature').
+Contributions, issues, and feature requests are always welcome! 
 
-Push to the Branch (git push origin feature/AmazingFeature).
+1.  **Fork** the project.
+2.  **Create your Feature Branch** (`git checkout -b feature/AmazingFeature`).
+3.  **Commit your Changes** (`git commit -m 'feat: Add some AmazingFeature'`).
+4.  **Push to the Branch** (`git push origin feature/AmazingFeature`).
+5.  **Open a Pull Request**.
 
-Open a Pull Request.
+*Great areas for contribution include: Adding new staff profiles, refining UI/UX, or optimizing media loading.*
 
-Great areas for contribution include: Adding new staff profiles, refining UI/UX, or optimizing media loading.
+---
 
-📜 License Information
-This project currently does not have an explicit license specified. Please contact the repository owner for specific licensing terms, usage permissions, or before utilizing these assets in a commercial capacity.
+## 📜 License Information
 
-🙌 Acknowledgments
-Developer: Eugenewijaya
+This project currently **does not have an explicit license specified**. Please contact the repository owner for specific licensing terms, usage permissions, or before utilizing these assets in a commercial capacity. 
 
-Organization: Star Champs Indonesia
+---
 
-Inspiration: Ms. Yessika, the driving force behind this personalized journey.
+## 🙌 Acknowledgments
+
+* **Developer**: Eugenewijaya
+* **Organization**: Star Champs Indonesia
+* **Inspiration**: Ms. Yessika, the driving force behind this personalized journey.
